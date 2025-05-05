@@ -1,83 +1,45 @@
 #include <iostream>
-#include "array.h"
+#include <string.h>
 
-void menu(){
-    printf("1.Display Array values\n");
-    printf("2.Enter Array values\n");
-    printf("3.Enter single Array value\n");
-    printf("4.Maximum value\n");
-    printf("5.Minimal value\n");
-    printf("6.Array Median\n");
-    printf("7.Array Sum\n");
-    printf("8.Save to file\n");
-    printf("9.Restore from file\n");
-    printf("0.EXIT\n");
-}
+//void usage(const char *program_name) {
+//    printf("Sposob uzycia: %s <komunikat> <#powtorzen>\n", program_name);
+//    exit(1);
+//}
 
-int main() {
-        int numbers[SIZE] = {1, 2, 3, 4, 5};
-        int option;
-        int errorcode = NULL;
-        printf("Simple Array\n\n");
 
-        do{
-            menu();
-            printf("Choose an option\n");
-            scanf(" %d",&option);
-            switch(option){
-                case 0:
-                    break;
-                case 1:
-                    showNum(numbers);
-                    break;
-                case 2:
-                    scanNum(numbers);
-                    break;
-                case 3:
-                    scanANum(numbers);
-                    break;
-                case 4:
-                    printf("max value is = %d\n",maxArray(numbers));
-                    break;
-                case 5:
-                    printf("min value is = %d\n",minArray(numbers));
-                    break;
-                case 6:
-                    printf("how\n");
-                    break;
-                case 7:
-                    printf("array sum = %d\n",sumNum(numbers));
-                    break;
-                case 8:
-                    errorcode = saveToFile(numbers);
-                    if (errorcode == NULL)
-                    {
-                        printf("All's a ok\n");
-                    }
-                    else
-                    {
-                        printf("No ok ;(\n");
-                    }
-                    break;
-                case 9:
-                    errorcode = restoreFromFile(numbers);
-                    if (errorcode == NULL)
-                    {
-                        printf("All's a ok\n");
-                    }
-                    else
-                    {
-                        printf("No ok ;(\n");
-                    }
-                    break;
-                default:
-                    printf("Choose correct option... \n");
-                    break;
+int main(int argc, char const *argv[]) {
+    int count;
+
+    if (argc == 4) {
+        int number1 = atoi(argv[1]);
+        int number2 = atoi(argv[3]);
+
+        if (!strcmp("add", argv[2])) {
+            count = number1 + number2;
+            printf("%d + %d = %d\n", number1, number2, count);
+            return 0;
+        }
+        if (!strcmp("sub", argv[2])) {
+            count = number1 - number2;
+            printf("%d +(- %d) = %d\n", number1, number2, count);
+            return 0;
+        }
+        if (!strcmp("mult", argv[2])) {
+            count = number1 * number2;
+            printf("%d * %d = %d\n", number1, number2, count);
+            return 0;
+        }
+        if (!strcmp("div", argv[2])) {
+            count = number1 / number2;
+            if (number2 == 0){
+
+                printf("YOU SHALL NOT DIVIDE by 0\n");
+
+                return 0;
             }
-
-        }while(option != NULL);
-
-    printf("See you next time!\n");
-
+            printf("%d / %d = %d\n", number1, number2, count);
+            return 0;
+        }
+    }
     return 0;
 }
