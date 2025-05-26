@@ -38,4 +38,6 @@ int getNodesCount();
 void freeList(void);
 // Frees memory allocated by the list
 
+int Top(void);
+
 #endif //SIMPLE_LIST_LIST_H
