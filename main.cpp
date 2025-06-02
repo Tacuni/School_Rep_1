@@ -20,6 +20,10 @@ int main()
 
     {
         Point p1, p2, p3;
+        Point p4 = {"P4", 15, 25};
+
+        p4.show();
+
         cout << endl;
         cout << "Teraz istnieje " << Point::numberOfPoints() << " punktow." << endl;
     }
